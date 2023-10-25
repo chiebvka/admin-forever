@@ -14,8 +14,6 @@ export default async function page({}: Props) {
   const supabase = createServerComponentClient({ cookies })
   const { data, error } = await supabase.from('profiles').select("*")
 
-    console.log(data)
-
     if (!data || error || !data.length) {
       notFound;
     }
