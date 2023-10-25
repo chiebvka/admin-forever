@@ -2,7 +2,8 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import './globals.css'
 import Sidebar from '@/components/SidebarToggle';
 import { Toaster } from "react-hot-toast";
-import ProtectedLayout from './(protected)/layout';
+
+import ProtectedMain from '@/components/protected-main';
 
 export const metadata = {
   title: 'Create Next App',
@@ -18,6 +19,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
@@ -28,11 +30,10 @@ export default function RootLayout({
             disableTransitionOnChange
           >
           <main >
+      
             {/* <Sidebar /> */}
-            <ProtectedLayout>
               
             {children}
-            </ProtectedLayout>
           </main>
           <Toaster position="bottom-right" />
         </ThemeProvider>

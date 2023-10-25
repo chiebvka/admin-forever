@@ -16,7 +16,7 @@ export async function UpdateSettings(context: z.infer<typeof profileSchema>) {
         full_name: `${profile.fistName} ${profile.lastName}`,
         username: profile.userName,
         avatar_url: profile.avatarUrl,
-        website: profile.website,
+        // website: profile.website,
       })
       .eq("id", profile.id);
 

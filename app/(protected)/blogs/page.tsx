@@ -67,7 +67,6 @@ export default async function Index({ searchParams }: {searchParams: any}) {
     // .match({ author_id: user?.id })
     .returns<Draft[]>();
 
-    console.log(data)
 
   if (!data || error || !data.length) {
     notFound;
@@ -88,9 +87,6 @@ export default async function Index({ searchParams }: {searchParams: any}) {
                         <p className="text-muted-foreground">
                             Here&apos;s a list of your tasks for this month!
                         </p>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <UserNavigation />
                     </div>
                 </div>
                 {data?.length && data?.length > 0 ? (

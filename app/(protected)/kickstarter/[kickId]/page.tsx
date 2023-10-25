@@ -4,6 +4,7 @@ import { cookies } from 'next/headers';
 import { Database } from '@/types/supabase';
 import { KickStarter } from '@/types/collection';
 import Starters from '../components/Starters';
+import toast from 'react-hot-toast';
 
 interface PostEditorPageProps {
   params: { kickId: string };
@@ -18,8 +19,7 @@ async function getKickstarter(kickId: string) {
     .single<KickStarter>();
 
   if (error) {
-    console.log("Error has occurred while getting post data");
-    console.log("Error message:", error.message);
+    toast.error("Error has occurred while getting post data");
     return null;
   }
 
@@ -30,14 +30,14 @@ export default async function page({ params }: PostEditorPageProps) {
   const kickId = params?.kickId; // Ensure kickId is defined
 
   if (!kickId) {
-    console.error("kickId is undefined or null");
+    toast.error("kickId is undefined or null");
     return null;
   }
 
   const kicker = await getKickstarter(kickId);
 
   if (!kicker) {
-    console.error("Failed to retrieve kicker data");
+    toast.error("Failed to retrieve kicker data");
     return null;
   }
 

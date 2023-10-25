@@ -27,34 +27,6 @@ async function getData(): Promise<Payment[]> {
 
   return tags;
 
-    //     {
-    //       id: "m5gr84i9",
-    //       status: true,
-    //       email: "Grief",
-    //     },
-    //     {
-    //       id: "3u1reuv4",
-    //       status: true,
-    //       email: "Healing",
-    //     },
-    //     {
-    //       id: "derv1ws0",
-    //       status: true,
-    //       email: "Acceptance",
-    //     },
-    //     {
-    //         id: "5kma53ae",
-    //         status: true,
-    //         email: "Health",
-    //       },
-    //       {
-    //         id: "bhqecj4p",
-    //         status: false,
-    //         email: "Joy",
-    //       },
-    //     ];
-      
-    //     return data;
 }
 
 
@@ -62,7 +34,6 @@ async function getTags () {
   
 }
 
-// export async function getServer
 
 export default async function Index({}: Props) {
     const supabase = createServerComponentClient({ cookies })
@@ -78,9 +49,6 @@ export default async function Index({}: Props) {
 
     const data = await getData();
 
-    // const { data: tags } = await supabase.from("tags").select("*");
-
-    // const tasks = JSON.parse(tags.toString())
 
 
 
@@ -98,9 +66,6 @@ export default async function Index({}: Props) {
                     <p className="text-muted-foreground">
                         Here&apos;s a list of your tasks for this month!
                     </p>
-                </div>
-                <div className="flex items-center space-x-2">
-                    <UserNavigation />
                 </div>
             </div>
             {/* <pre>{JSON.stringify(tags, null, 2)}</pre> */}

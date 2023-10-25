@@ -11,14 +11,14 @@ export async function DeleteGalleryImage(
 ) {
   const supabase = createServerActionClient<Database>({ cookies });
   try {
-    const { postId, fileName } = imageDeleteSchema.parse(context);
+    const { userId, postId, fileName } = imageDeleteSchema.parse(context);
     const bucketName =
       process.env.NEXT_PUBLIC_SUPABASE_STORAGE_BUCKET_GALLERY_IMAGE ||
       "gallery-image";
 
     const { data, error } = await supabase.storage
       .from(bucketName)
-      .remove([`/${postId}/${fileName}`]);
+      .remove([`${userId}/${postId}/${fileName}`]);
 
     if (error) {
       console.log(error);

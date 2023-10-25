@@ -3,7 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table"
  
 import { Button } from "@/components/ui/button";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { format } from "date-fns";
 import {
@@ -20,9 +20,10 @@ import Link from "next/link";
 // You can use a Zod schema here if you want.
 export type Payment = {
   id: string
-  amount: number
-  username: string
+  mobile: number
+  name: string
   email: string
+  message: string
 }
 
 export const columns: ColumnDef<Payment>[] = [
@@ -46,33 +47,25 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
     },
     {
-        accessorKey: "email",
-        header: ({ column }) => {
-            return (
-            <Button
-                variant="ghost"
-                onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-            >
-                Email
-                <ArrowUpDown className="ml-2 h-4 w-4" />
-            </Button>
-            )
-        },
+        accessorKey: "name",
+        header: 'Name'
     },
     {
-        accessorKey: "username",
-        header: "Username",
+        accessorKey: "email",
+        header: 'Email Address'
     },
-    // {
-    //     accessorKey: "id",
-    //     header: "id",
-    //     enableHiding: false,
-    //     enableSorting: false,
-    // },
+    {
+        accessorKey: "mobile",
+        header: 'Mobile'
+    },
+    {
+        accessorKey: "message",
+        header: "Message",
+    },
 
     {
         accessorKey: "created_at",
-        header: () => <div className="text-center">Joined On</div>,
+        header: () => <div className="text-center">Created On</div>,
 
         cell: ({ row }) => {
             const date = format(new Date(row.getValue("created_at")), "MM/dd/yyyy");
@@ -103,19 +96,9 @@ export const columns: ColumnDef<Payment>[] = [
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(payment.username)}
-                >
-                Copy Username
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                onClick={() => navigator.clipboard.writeText(payment.email)}
-                >
-                Copy user email
-                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                    <Link href={`/users/${payment.id}`}>View Profile</Link>
+                    <Link href={`/messages/${payment.id}`}>View Message</Link>
                 </DropdownMenuItem>
                 {/* <DropdownMenuItem>View payment details</DropdownMenuItem> */}
             </DropdownMenuContent>

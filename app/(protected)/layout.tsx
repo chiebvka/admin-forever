@@ -1,4 +1,4 @@
-// import ProtectedMain from "@/components/protected/site/protected-main";
+
 import ProtectedMain from "@/components/protected-main";
 import { Profile } from "@/types/collection";
 import type { Database } from "@/types/supabase";

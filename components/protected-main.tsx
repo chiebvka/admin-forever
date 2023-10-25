@@ -2,11 +2,7 @@
 "use client";
 
 import { FC, ReactNode, useState } from "react";
-// import DesktopSidebar from "./sidebars/desktop-sidebar";
-// import MobileSidebar from "./sidebars/mobile-sidebar";
 import MobileMenuButton from "./sub-components/mobile-menu-button";
-import ProfileDropDown from "./sub-components/profile-dropdown";
-// import TopBar from "./sub-components/searchbar";
 import SidebarToggle from "./SidebarToggle";
 import MobileSidebar from "./MobileSidebar";
 import TopBar from "./sub-components/searchbar";
@@ -40,7 +36,7 @@ const ProtectedMain: FC<ProtectedMainProps> = ({ children }) => {
     
               <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" aria-hidden="true" />
                 <ModeToggle />
-              {/* <UserNavigation /> */}
+              <UserNavigation />
               {/* <ProfileDropDown /> */}
             </div>
           </div>

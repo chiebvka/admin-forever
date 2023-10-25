@@ -17,7 +17,7 @@ export async function UpdatePost(context: z.infer<typeof postUpdateSchema>) {
         id: post.id,
         title: post.title,
         slug: post.slug,
-        category_id: post.tag,
+        category_id: post.categoryId,
         description: post.description,
         image: post.image,
         content: post.content,

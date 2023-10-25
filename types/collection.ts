@@ -8,6 +8,8 @@ export type BookMark = Database["public"]["Tables"]["bookmarks"]["Row"];
 export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 export type Draft = Database["public"]["Tables"]["drafts"]["Row"];
 export type KickStarter = Database["public"]["Tables"]["kickstarter"]["Row"];
+export type Messages = Database["public"]["Tables"]["messages"]["Row"];
+export type Subscribers = Database["public"]["Tables"]["subscribers"]["Row"];
 
 export interface DraftWithCategory extends Omit<Draft, "categories"> {
   categories: Category;

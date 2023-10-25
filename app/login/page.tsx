@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import Link from 'next/link'
 import Messages from './messages'
 import Image from 'next/image'
-import rio from "../images/mapa.jpeg"
+import rio from "../../public/images/mapa.jpeg"
 import AuthForm from '@/components/AuthForm'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'

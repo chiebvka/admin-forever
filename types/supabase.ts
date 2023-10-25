@@ -36,6 +36,84 @@ export interface Database {
         };
         Relationships: [];
       };
+      authors: {
+        Row: {
+          id: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          created_at?: string;
+        };
+        Relationships: [];
+      },
+      categories: {
+        Row: {
+          id: string;
+          title: string | null;
+          slug: string | null;
+          created_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          title?: string | null;
+          slug?: string | null;
+          created_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          title?: string | null;
+          slug?: string | null;
+          created_at?: string | null;
+        };
+        Relationships: [];
+      },
+      messages: {
+        Row: {
+          id: string;
+          name: string | null;
+          email: string | null;
+          mobile: string | null;
+          message: string | null;
+        };
+        Insert: {
+          id?: string;
+          name?: string | null;
+          email?: string | null;
+          mobile?: string | null;
+          message?: string | null;
+        };
+        Update: {
+          id?: string;
+          name?: string | null;
+          email?: string | null;
+          mobile?: string | null;
+          message?: string | null;
+        };
+        Relationships: [];
+      },
+      subscribers:{
+        Row: {
+          id: string;
+          email: string | null;
+          created_at: string | null;
+        };
+        Insert: {
+          id?: string;
+          email?: string | null;
+          created_at?: string | null;
+        };
+        Update: {
+          id?: string;
+          email?: string | null;
+          created_at?: string | null;
+        };
+        Relationships: [];
+      },
       bookmarks: {
         Row: {
           created_at: string | null
@@ -231,6 +309,7 @@ export interface Database {
       }
       profiles: {
         Row: {
+          full_name: any;
           avatar_url: any
           created_at: string
           email: string | null

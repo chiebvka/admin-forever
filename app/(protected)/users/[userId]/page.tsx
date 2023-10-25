@@ -5,6 +5,7 @@ import { Database } from '@/types/supabase';
 import { Profile } from '@/types/collection';
 
 import Profiles from '../components/Profiles';
+import toast from 'react-hot-toast';
 
 
 interface PostEditorPageProps {
@@ -20,13 +21,11 @@ async function getUser(userId: string)  {
   .single<Profile>();
 
 if (error) {
-  console.log("Error has occured while getting post data");
-  console.log("Error message : ", error.message);
-  return null;
+  toast.error("Error has occured while getting post data");
+
 }
 
 return data ? data : null;
-console.log(data)
 
 }
 

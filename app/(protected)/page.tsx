@@ -3,13 +3,9 @@ import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
-import { ModeToggle } from '@/components/ModeToggle';
 import TeamSwitcher from '@/components/TeamSwitcher';
-import TabNavigation from '@/components/TabNavigation';
 import Navsearch from '@/components/Navsearch';
-import UserNavigation from '@/components/UserNavigation';
 import RecentSignups from '@/components/RecentSignups';
 import TrendingBlogs from '@/components/TrendingBlogs';
 
@@ -37,7 +33,7 @@ export default async function Index() {
               {/* <TabNavigation className='mx-6' /> */}
               <div className="ml-auto flex items-center space-x-4">
                 <Navsearch />
-                <UserNavigation />
+                {/* <UserNavigation /> */}
               </div>
             </div>
           </div>
