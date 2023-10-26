@@ -29,6 +29,7 @@ import { postConfig } from '@/config/post';
 import { Draft, Post } from '@/types/collection';
 import PostTableEmpty from '@/components/protected/post/post-empty-table';
 import PostRefreshOnce from '@/components/protected/post/post-refresh-once';
+import { FC } from 'react';
 
 
 // Simulate a database read for tasks.
@@ -79,7 +80,7 @@ type CardProps = React.ComponentProps<typeof Card>
 
 
 
-export default async function page({ className, ...props }: CardProps) {
+const page = async ({ className, ...props }: CardProps) => {
 // export default async function Index({ searchParams }: {searchParams: any}) {
     const supabase = createServerComponentClient({ cookies })
     const { data: {session}} = await supabase.auth.getSession()
@@ -182,3 +183,5 @@ export default async function page({ className, ...props }: CardProps) {
         </div>
     )
 }
+
+export default page
