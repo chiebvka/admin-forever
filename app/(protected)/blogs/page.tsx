@@ -79,7 +79,7 @@ type CardProps = React.ComponentProps<typeof Card>
 
 
 
-export default async function Index({ className, ...props }: CardProps) {
+export default async function page({ className, ...props }: CardProps) {
 // export default async function Index({ searchParams }: {searchParams: any}) {
     const supabase = createServerComponentClient({ cookies })
     const { data: {session}} = await supabase.auth.getSession()
