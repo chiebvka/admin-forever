@@ -9,6 +9,7 @@ import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandL
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,}  from "@/components/ui/dialog";
 import { Input } from './ui/input';
 import { Label } from './ui/label';
+import dp from "../public/images/02.png"
 import {   Popover, PopoverContent, PopoverTrigger, } from "@/components/ui/popover";
 import {   Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select";
 
@@ -17,7 +18,7 @@ const groups = [
     label: "Personal Account",
     teams: [
       {
-        label: "Alicia Koch",
+        label: "Admin 1",
         value: "personal",
       },
     ],
@@ -26,12 +27,8 @@ const groups = [
     label: "Teams",
     teams: [
       {
-        label: "Acme Inc.",
+        label: "Foreversake",
         value: "acme-inc",
-      },
-      {
-        label: "Monsters Inc.",
-        value: "monsters",
       },
     ],
   },
@@ -66,12 +63,12 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
           >
             <Avatar className="mr-2 h-5 w-5">
               <AvatarImage
-                src={`https://avatar.vercel.sh/${selectedTeam.value}.png`}
+                src='/images/02.png'
                 alt={selectedTeam.label}
               />
               <AvatarFallback>SC</AvatarFallback>
             </Avatar>
-            {selectedTeam.label}
+            Current Admin
             <CaretSortIcon className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
@@ -124,7 +121,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
                     }}
                   >
                     <PlusCircledIcon className="mr-2 h-5 w-5" />
-                    Create Team
+                    Create Admin
                   </CommandItem>
                 </DialogTrigger>
               </CommandGroup>
@@ -134,18 +131,18 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
       </Popover>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Create team</DialogTitle>
+          <DialogTitle>Create New Admin</DialogTitle>
           <DialogDescription>
-            Add a new team to manage products and customers.
+            Add a new team member to manage products and customers.
           </DialogDescription>
         </DialogHeader>
         <div>
           <div className="space-y-4 py-2 pb-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Team name</Label>
-              <Input id="name" placeholder="Acme Inc." />
+              <Label htmlFor="name">Admin email</Label>
+              <Input id="name" placeholder="User Email" />
             </div>
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <Label htmlFor="plan">Subscription plan</Label>
               <Select>
                 <SelectTrigger>
@@ -166,7 +163,7 @@ export default function TeamSwitcher({ className }: TeamSwitcherProps) {
                   </SelectItem>
                 </SelectContent>
               </Select>
-            </div>
+            </div> */}
           </div>
         </div>
         <DialogFooter>

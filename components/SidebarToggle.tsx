@@ -10,6 +10,8 @@ import { Caveat } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import { dashBoardLogout, dashBoardMenusLoop } from "@/config/dashboard";
 import { v4 } from 'uuid';
+import Image from 'next/image';
+import logo from '../public/images/logo.png'
 
 
 
@@ -29,8 +31,14 @@ export default function SidebarToggle({}: Props) {
 
 <div className="hidden lg:fixed border-4 lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-background px-6 pb-4">
-          <Link href={getUrl()} className="flex h-16 shrink-0 items-center">
-            <h1 className={`${cavet.className} h-8 text-4xl z-10 text-foreground  w-auto`}>Foreversake Inc.</h1>
+          <Link  href={getUrl()} className="flex h-16 shrink-0 items-center">
+            <Image  
+
+            alt='foreversake_logo'
+           src={logo}
+           className='h-16 w-18 relative'
+          />
+            {/* <h1 className={`${cavet.className} h-8 text-4xl z-10 text-foreground  w-auto`}>Foreversake Inc.</h1> */}
           </Link>
           <nav className='flex flex-1 flex-col'>
             <ul role='list' className='flex flex-1 flex-col gap-y-7'>
@@ -43,16 +51,16 @@ export default function SidebarToggle({}: Props) {
                       className={cn(
                         currentPath === menu.slug ||
                           (path.length > 3 && pathSlug === menu.slug)
-                          ? "bg-gray-50 text-orange-600"
-                          : "text-gray-700 hover:bg-gray-50 hover:text-orange-600",
+                          ? "bg-gray-50 text-[#DEB738]"
+                          : "text-foreground hover:bg-gray-50 hover:text-[#DEB738]",
                         "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6",
                       )}
                     >
                       <menu.icon
                         className={cn(
                           currentPath === menu.slug
-                            ? "text-orange-600"
-                            : "text-gray-400 group-hover:text-orange-600",
+                            ? "text-[#DEB738]"
+                            : "text-foreground group-hover:text-[#DEB738]",
                           "h-6 w-6 shrink-0",
                         )}
                         aria-hidden="true"

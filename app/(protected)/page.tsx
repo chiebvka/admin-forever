@@ -26,7 +26,7 @@ export default async function Index() {
       <div className="mx-auto max-w-5xl p-4 sm:p-6 ">
         <nav className="w-full flex justify-center border-b border-b-foreground/10 ">
         </nav>
-        <div className="hidden w-full flex-col md:flex">
+        <div className=" w-full flex-col flex">
           <div className="border-b">
             <div className="flex h-16 items-center px-4">
               <TeamSwitcher />

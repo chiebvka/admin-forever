@@ -9,6 +9,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Dispatch, FC, Fragment, SetStateAction } from "react";
 import { v4 } from "uuid";
+import logo from '../public/images/logo.png'
+
 
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
@@ -77,18 +79,15 @@ const MobileSidebar: FC<MobileSidebarProps> = ({
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-4">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-background px-6 pb-4">
                   <Link
                     href={getUrl()}
                     className="flex h-16 shrink-0 items-center"
                   >
-                    <Image
-                      className="h-[40px] w-[40px]"
-                      src="/images/logo.png"
-                      alt="Logo"
-                      height={40}
-                      width={40}
-                      priority
+                    <Image  
+                      alt='foreversake_logo'
+                      src={logo}
+                      className='h-16 w-18 relative'
                     />
                   </Link>
                   <nav className="flex flex-1 flex-col">
@@ -101,16 +100,16 @@ const MobileSidebar: FC<MobileSidebarProps> = ({
                                 href={menu.slug || ""}
                                 className={cn(
                                   currentPath === menu.slug
-                                    ? "bg-gray-50 text-orange-600"
-                                    : "text-gray-700 hover:bg-gray-50 hover:text-orange-600",
+                                    ? "bg-gray-50 text-[#DEB738]"
+                                    : "text-foreground hover:bg-gray-50 hover:text-[#DEB738]",
                                   "group flex gap-x-3 rounded-md p-2 font-sans text-sm font-semibold leading-6",
                                 )}
                               >
                                 <menu.icon
                                   className={cn(
                                     currentPath === menu.slug
-                                      ? "text-orange-600"
-                                      : "text-gray-400 group-hover:text-orange-600",
+                                      ? "text-[#DEB738]"
+                                      : "text-foreground group-hover:text-[#DEB738]",
                                     "h-6 w-6 shrink-0 font-sans",
                                   )}
                                   aria-hidden="true"
