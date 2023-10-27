@@ -44,12 +44,12 @@ const notifications = [
 ]
 
 
-type CardProps = React.ComponentProps<typeof Card>
+// type CardProps = React.ComponentProps<typeof Card>
 
 
 type Props = {}
 
-export default function page({ className, ...props }: CardProps) {
+export default function page({}: Props) {
   return (
     <div className="md:w-9/12 bg-background absolute overflow-y-auto right-0 top-0  flex flex-col items-center justify-center">
     <nav className="w-full flex justify-center border-b border-b-foreground/10 ">
@@ -66,7 +66,7 @@ export default function page({ className, ...props }: CardProps) {
                 </p>
             </div>
         </div>
-        <Card className={cn("w-auto", className)} >
+        <Card className="w-auto" >
           <CardHeader>
             <CardTitle>Start Writing</CardTitle>
             <CardDescription>Let's get you started on making blog posts</CardDescription>
