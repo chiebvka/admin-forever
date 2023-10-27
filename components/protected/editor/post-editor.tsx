@@ -457,7 +457,7 @@ const PostEditor: FC<PostEditorProps> = ({
 
                 {galleryImagePublicUrls.length > 0 ? (
                   <GalleryImageTable
-             
+                    userId={userId}
                     postId={post.id}
                     fileNames={galleryImageFileNames}
                     imageUrls={galleryImagePublicUrls}
