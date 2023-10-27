@@ -17,7 +17,7 @@ export function getUrl() {
   if (process.env.NODE_ENV === "development") {
     return process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
   } else {
-    return process.env.NEXT_PUBLIC_WEB_URL || "https://forever-landing.vercel.app/";
+    return process.env.NEXT_PUBLIC_WEB_URL || "https://foreversake-admin.vercel.app/";
   }
 }
 

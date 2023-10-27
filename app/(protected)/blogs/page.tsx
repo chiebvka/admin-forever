@@ -31,15 +31,15 @@ export const metadata: Metadata = {
 const notifications = [
   {
     title: "Step 1",
-    description: "Ensure you'v ebeen invited as an adminstrator",
+    description: "Ensure you've been invited as a blog adminstrator",
   },
   {
     title: "Step 2",
-    description: "Creat an account or login with the emsail adress you received your invite with",
+    description: "Create an account or login with the email address you received your invite with",
   },
   {
     title: "Step 3",
-    description: "Happy wrirting!! Write away and post your articles",
+    description: "Happy writing!! Write away and post your articles",
   },
 ]
 
@@ -57,12 +57,12 @@ export default function page({}: Props) {
           <ModeToggle />
         </div>
     </nav>
-    <div className=" border-2 w-full h-full flex-1 flex-col space-y-8 p-8 flex">
+    <div className=" w-full h-full flex-1 flex-col space-y-8 p-8 flex">
         <div className="flex items-center justify-between space-y-2 ">
             <div>
                 <h2 className="text-2xl font-bold tracking-tight">Welcome back!</h2>
                 <p className="text-muted-foreground">
-                    Here&apos;s a list of your tasks for this month!
+                    Here&apos;s how to write some blog posts!
                 </p>
             </div>
         </div>
