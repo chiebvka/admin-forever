@@ -61,29 +61,29 @@ export default function AuthForm({ className, ...props }: UserAuthFormProps) {
         }
     }
 
-    const handleSignUp = async () => {
-        try {
-        setIsLoading(true); 
-        const {  error } =  await supabase.auth.signUp({
-            email,
-            password,
-            options: {
-            emailRedirectTo: `${location.origin}/auth/callback`,
-            },
-        });
-        if (error) {
-            setError({ type: 'error', msg: error.message }); 
-            setIsLoading(false); 
-            return;
-        }
-        setTimeout(() => {
-          router.push('/');
-      }, 2000);
-        } catch (error) {
-        console.error('Login failed', error);
-        setError({ type: 'error', msg: 'An error occurred while getting you signed up' });
-        }
-    }
+    // const handleSignUp = async () => {
+    //     try {
+    //     setIsLoading(true); 
+    //     const {  error } =  await supabase.auth.signUp({
+    //         email,
+    //         password,
+    //         options: {
+    //         emailRedirectTo: `${location.origin}/auth/callback`,
+    //         },
+    //     });
+    //     if (error) {
+    //         setError({ type: 'error', msg: error.message }); 
+    //         setIsLoading(false); 
+    //         return;
+    //     }
+    //     setTimeout(() => {
+    //       router.push('/');
+    //   }, 2000);
+    //     } catch (error) {
+    //     console.error('Login failed', error);
+    //     setError({ type: 'error', msg: 'An error occurred while getting you signed up' });
+    //     }
+    // }
 
 
   return (
@@ -120,12 +120,12 @@ export default function AuthForm({ className, ...props }: UserAuthFormProps) {
           )}
           Sign In with Email
         </Button>
-        <Button disabled={isLoading} onClick={handleSignUp}>
+        {/* <Button disabled={isLoading} onClick={handleSignUp}>
           {isLoading && (
             <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
           )}
           Sign Up
-        </Button>
+        </Button> */}
 
         <Messages />
 
@@ -137,42 +137,14 @@ export default function AuthForm({ className, ...props }: UserAuthFormProps) {
               {error.msg}
               </AlertDescription>
             </Alert>
-          // <p className="mt-4 p-3 bg-red-100 border-2 rounded-md border-red-700 text-red-700 text-center">
-          //     {error.msg}
-          // </p>
         )}
         {message && (
-            //   <Alert>
-            //   <Terminal className="h-4 w-4" />
-            //   <AlertTitle>Heads up!</AlertTitle>
-            //   <AlertDescription>
-            //     {message}
-            //   </AlertDescription>
-            // </Alert>
           <p className="mt-4 p-3 bg-green-100 border-2 rounded-md border-green-700 text-green-700 text-center">
             {message}
           </p>
         )}
       </div>
     </div>
-    {/* <div className="relative">
-      <div className="absolute inset-0 flex items-center">
-        <span className="w-full border-t" />
-      </div>
-      <div className="relative flex justify-center text-xs uppercase">
-        <span className="bg-background px-2 text-muted-foreground">
-          Or continue with
-        </span>
-      </div>
-    </div> */}
-    {/* <Button variant="outline" type="button" disabled={isLoading}>
-      {isLoading ? (
-        <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-      ) : (
-        <Icons.gitHub className="mr-2 h-4 w-4" />
-      )}{" "}
-      Github
-    </Button> */}
     </div>
   )
 }
