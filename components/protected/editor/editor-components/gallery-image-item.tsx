@@ -24,12 +24,14 @@ import toast from "react-hot-toast";
 
 interface GalleryImageItemProps {
   postId: string;
+  userId: string;
   fileName: string;
   imageUrl: string;
 }
 
 const GalleryImageItem: FC<GalleryImageItemProps> = ({
   postId,
+  userId,
   fileName,
   imageUrl,
 }) => {
@@ -40,6 +42,7 @@ const GalleryImageItem: FC<GalleryImageItemProps> = ({
     setIsDeleteLoading(!isDeleteLoading);
     const imageData = {
       postId: postId,
+      userId: userId,
       fileName: fileName,
     };
     const response = await DeleteGalleryImage(imageData);

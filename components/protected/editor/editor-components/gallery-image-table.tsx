@@ -5,12 +5,13 @@ import GalleryImageTableEmpty from "./gallery-image-table-empty";
 
 interface GalleryImageTableProps {
   postId: string;
+  userId: string;
   fileNames: string[];
   imageUrls: string[];
 }
 
 const GalleryImageTable: FC<GalleryImageTableProps> = ({
-
+  userId,
   postId,
   fileNames,
   imageUrls,
@@ -23,6 +24,7 @@ const GalleryImageTable: FC<GalleryImageTableProps> = ({
             <GalleryImageItem
               key={v4()}
               postId={postId}
+              userId={userId}
               fileName={fileNames[idx]}
               imageUrl={url}
             />
